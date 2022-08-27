@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['libelle_echelon']) && ($_POST['libelle_echelon'] != "")) {
+if (isset($_POST['ajouter'])) {
         $libelle = trim($_POST['libelle_echelon']);
         $sql = "insert into echelon(libelle_echelon) values('$libelle')";
         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
@@ -109,7 +109,7 @@ if (isset($_POST['modifier'])) {
                     <input class="form-control" type="text" name="libelle_echelon">
                   </div>
                   <div class="submit-section">
-                    <button type="submit" class="btn btn-primary submit-btn">Ajouter</button>
+                    <button type="submit" name="ajouter" class="btn btn-primary submit-btn">Ajouter</button>
                   </div>
                 </form>
               </div>

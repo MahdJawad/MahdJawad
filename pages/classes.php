@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['libelle__classe']) && ($_POST['libelle__classe'] != "")) {
+if (isset($_POST['ajouter'])) {
         $libelle = trim($_POST['libelle_classe']);
         $sql = "insert into classe(libelle_classe) values('$libelle')";
         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
@@ -106,11 +106,11 @@ if (isset($_POST['modifier'])) {
               <div class="modal-body">
                 <form action="./?page=classes" method="post">
                   <div class="form-group">
-                    <label>Libellé de l'classe <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="libelle_classe">
+                    <label>Libellé de la classe <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="libelle_classe" required>
                   </div>
                   <div class="submit-section">
-                    <button type="submit" class="btn btn-primary submit-btn">Ajouter</button>
+                    <button name="ajouter" type="submit" class="btn btn-primary submit-btn">Ajouter</button>
                   </div>
                 </form>
               </div>

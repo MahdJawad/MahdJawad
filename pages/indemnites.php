@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['libelle']) && ($_POST['libelle'] != "")) {
+if (isset($_POST['ajouter'])) {
         $libelle = trim($_POST['libelle']);
         $sql = "insert into indemnite(libelle) values('$libelle')";
         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
@@ -109,7 +109,7 @@ if (isset($_POST['modifier'])) {
                     <input class="form-control" type="text" name="libelle">
                   </div>
                   <div class="submit-section">
-                    <button type="submit" class="btn btn-primary submit-btn">Ajouter</button>
+                    <button type="submit" name="ajouter" class="btn btn-primary submit-btn">Ajouter</button>
                   </div>
                 </form>
               </div>
