@@ -134,7 +134,6 @@
 						</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="<?php echo $_SESSION['libelleprofil']; ?>">My Profile</a>
-							<a class="dropdown-item" href="./?page=">Settings</a>
 							<a class="dropdown-item" href="./?page=logout">Logout</a>
 						</div>
 					</li>
