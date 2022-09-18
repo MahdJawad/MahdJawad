@@ -4,7 +4,7 @@ if (isset($_POST['ajouter'])) {
         $echelon = trim($_POST['echelon_id']);
         $categorie = trim($_POST['categorie_id']);
         $classe = trim($_POST['classe_id']);
-        $departement = trim($_POST['Département_id']);
+        $departement = trim($_POST['departement_id']);
         $nom_emp = trim($_POST['nom_employe']);
         $prenom_emp = trim($_POST['prenom_employe']);
         $adresse = trim($_POST['adresse']);
@@ -14,7 +14,7 @@ if (isset($_POST['ajouter'])) {
         $telephone = trim($_POST['tel']);
         $mail = trim($_POST['mail']);
         $cnss = trim($_POST['num_cnss']);
-        $sql = "insert into employe(matricule,echelon_id,categorie_id,classe_id,Département_id,nom_employe, prenom_employe, adresse, date_naissance,lieu_naissance, sexe, telephone, mail,num_cnss) values('$matricule','$echelon','$categorie','$classe','$departement','$nom_emp','$prenom_emp','$adresse','$date','$lieu','$sexe','$telephone','$mail','$num_cnss')";
+        $sql = "insert into employe(matricule,echelon_id,categorie_id,classe_id,departement_id,nom_employe, prenom_employe, adresse, date_naissance,lieu_naissance, sexe, telephone, mail,num_cnss) values('$matricule','$echelon','$categorie','$classe','$departement','$nom_emp','$prenom_emp','$adresse','$date','$lieu','$sexe','$telephone','$mail','$num_cnss')";
         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
         if ($requete) {
             echo "<script type='text/javascript'>document.location.href='./?page=employes&message=AddOk'; </script>";
@@ -37,7 +37,7 @@ if (isset($_POST['modifier'])) {
                 $echelon = trim($_POST['echelon_id']);
                 $categorie = trim($_POST['categorie_id']);
                 $classe = trim($_POST['classe_id']);
-                $departement = trim($_POST['Département_id']);
+                $departement = trim($_POST['departement_id']);
                 $nom_emp = trim($_POST['nom_employe']);
                 $prenom_emp = trim($_POST['prenom_employe']);
                 $adress = trim($_POST['adresse']);
@@ -47,7 +47,7 @@ if (isset($_POST['modifier'])) {
                 $telephone = trim($_POST['tel']);
                 $mail = trim($_POST['mail']);
                 $cnss = trim($_POST['num_cnss']);
-                $sql = "update employe  set matricule='$matricule',echelon_id='$echelon',categorie_id='$categorie',classe_id='$classe',Département_id='$departement',nom_employe='$nom_emp', prenom_employe='$prenom_emp', adresse='$adresse', lieu_naissance='$lieu',date_naissance='$date', sexe='$sexe', telephone='$telephone', mail='$email', num_cnss='$cnss' where id =" . trim($_POST['code_employe']);
+                $sql = "update employe  set matricule='$matricule',echelon_id='$echelon',categorie_id='$categorie',classe_id='$classe',departement_id='$departement',nom_employe='$nom_emp', prenom_employe='$prenom_emp', adresse='$adresse', lieu_naissance='$lieu',date_naissance='$date', sexe='$sexe', telephone='$telephone', mail='$email', num_cnss='$cnss' where id =" . trim($_POST['code_employe']);
                 $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
                 if ($requete) {
 
@@ -89,8 +89,7 @@ $departements = mysqli_fetch_all($requete);
                                 
     <div class="row">
 		<div class="col-md-12">
-			<div class="table-responsive">
-				<table class="table table-striped custom-table datatable">
+				<table class="table table-striped custom-table mb-0 datatable">
                   <thead>
                     <tr>
                       <th style="width: 30px;">#</th>
@@ -106,7 +105,7 @@ $departements = mysqli_fetch_all($requete);
                   </thead>
                   <tbody>
                      <?php
-                        $sql = "select * from employe inner join classe,categorie,echelon,departement where classe.id=employe.classe_id and categorie.id=employe.categorie_id and echelon.id=employe.echelon_id and departement.id=employe.Département_id";
+                        $sql = "select * from employe inner join classe,categorie,echelon,departement where classe.id=employe.classe_id and categorie.id=employe.categorie_id and echelon.id=employe.echelon_id and departement.id=employe.departement_id";
                         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
                         $donnees = mysqli_fetch_all($requete);
                         foreach ($donnees as $employe) {
@@ -117,12 +116,14 @@ $departements = mysqli_fetch_all($requete);
                                         <td>" . $employe['3'] . "</td>
                                         <td>" . $employe['1'] . "</td>
                                         <td>" . $employe['6'] . "</td>
+                                        <td>" . $employe['5'] . "</td>
                                         <td>" . $employe['10'] . "</td>
                                         <td>" . $employe['9'] . "</td>
                                         <td class='text-end'>
                                         <div class='dropdown dropdown-action'>
                                                 <a href='#' class='action-icon dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'><i class='material-icons'>more_vert</i></a>
                                             <div class='dropdown-menu dropdown-menu-right'>
+                                                <a class='dropdown-item' href='./?page=vueEmploye&id=" . $employe['0'] . "' data-bs-toggle='' data-bs-target='' ><i class='fa fa-eye'></i>Voir plus</a>
                                                 <a class='dropdown-item btn-modifier' href='#' matricule='".$employe['1']."' nom='".$employe['2']."' prenom='".$employe['3']."' naissance='".$employe['4']."' adresse='".$employe['5']."' fonction='".$employe['6']."' lieu='".$employe['7']."' sexe='".$employe['8']."' telephone='".$employe['9']."' mail='".$employe['10']."' cnss='".$employe['11']."' classe='".$employe['17']."' categorie='".$employe['19']."' echelon='".$employe['21']."' departement='".$employe['23']."' code='".$employe['0']."' data-bs-toggle='modal' data-bs-target='#edit_employe'><i class='fa fa-pencil m-r-5'></i> Modifier</a>
                                                 <a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#delete_employe'><i class='fa fa-trash-o m-r-5'></i> supprimer</a>
                                             </div>
@@ -133,14 +134,14 @@ $departements = mysqli_fetch_all($requete);
                     </tbody>
                 </table>
               </div>
-            </div>
           </div>
         </div>
         <!-- /Page Content -->
         
         <!-- Add employe Modal -->
+        
         <div id="add_employe" class="modal custom-modal fade" role="dialog">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Ajouter employé</h5>
@@ -257,7 +258,7 @@ $departements = mysqli_fetch_all($requete);
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label class="col-form-label">Numero de telephone: (227-99-99-99-99)</label>
-                                                <input type="tel" name="telelephone" class="form-control" required  pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                                                <input type="number" name="telephone" class="form-control" required  pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
                                             </div>
                                         </div>
                                       
@@ -293,7 +294,7 @@ $departements = mysqli_fetch_all($requete);
         
         <!-- Edit employe Modal -->
         <div id="edit_employe" class="modal custom-modal fade" role="dialog">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title">Modifier employé</h5>
@@ -471,6 +472,8 @@ $departements = mysqli_fetch_all($requete);
         </div>
     </div>
         <!-- /Delete employe Modal -- -->
+   
+      
 <script> 
 $(document).ready(function(){
   $('.btn-modifier').click(function(){

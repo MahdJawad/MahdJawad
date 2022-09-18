@@ -266,7 +266,7 @@ $(document).ready(function() {
 
 	// Leave Settings button show
 	
-	$(document).on('click', '.leave-edit-btn', function() {
+	/*$(document).on('click', '.leave-edit-btn', function() {
 		$(this).removeClass('leave-edit-btn').addClass('btn btn-white leave-cancel-btn').text('Cancel');
 		$(this).closest("div.leave-right").append('<button class="btn btn-primary leave-save-btn" type="submit">Save</button>');
 		$(this).parent().parent().find("input").prop('disabled', false);
@@ -308,7 +308,7 @@ $(document).ready(function() {
 			$("#leave_"+id+" .leave-edit-btn").prop('disabled', true);
 		}
 	});
-	
+	*/
 	// Placeholder Hide
 
 	if ($('.otp-input, .zipcode-input input, .noborder-input input').length > 0) {

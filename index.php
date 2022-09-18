@@ -12,7 +12,7 @@
         <title> Sirba RH - Gestion des Ressources humaines</title>
 		
 		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 		
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -23,8 +23,18 @@
 		<!-- Lineawesome CSS -->
         <link rel="stylesheet" href="assets/css/line-awesome.min.css">
 		
+		<!-- Datatable CSS -->
+		<link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
+		
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
+		
     <!-- jQuery -->
 <script src="assets/js/jquery-3.6.0.min.js"></script>
 		
@@ -121,11 +131,7 @@
 				
 				<!-- Header Menu -->
 				<ul class="nav user-menu">
-				
-				
-
 		
-
 					<li class="nav-item dropdown has-arrow main-drop">
 						<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
 							<span class="user-img"><img src="assets/img/profiles/avatar-21.jpg" alt="">
@@ -139,8 +145,7 @@
 					</li>
 				</ul>
         <!-- /Header Menu -->
-        
-        
+    
     </div>
     <!-- /Header -->
    
@@ -231,17 +236,25 @@
 <!-- /Main Wrapper -->
 
 
+		<!-- Bootstrap Core JS -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-<!-- Bootstrap Core JS -->
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+		<!-- Slimscroll JS -->
+		<script src="assets/js/jquery.slimscroll.min.js"></script>
+		
+		<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
+		
+		<!-- Datatable JS -->
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+		
+		<!-- Datetimepicker JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 
-<!-- Slimscroll JS -->
-<script src="assets/js/jquery.slimscroll.min.js"></script>
-<!-- Datatable JS -->
-<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/dataTables.bootstrap4.min.js"></script>
-<!-- Custom JS -->
-<script src="assets/js/app.js"></script>
-
+		<!-- Custom JS -->
+		<script src="assets/js/app.js"></script>
+		
 </body>
 </html>

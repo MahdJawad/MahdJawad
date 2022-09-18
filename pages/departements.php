@@ -4,7 +4,8 @@ if (isset($_POST['ajouter'])) {
         $sql = "insert into departement(libelle) values('$libelle')";
         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
         if ($requete) {
-          echo "<script type='text/javascript'>document.location.href='./?page=departements&message=AddOk'; </script>";
+                echo "<span> Enregistrement effectué avec succès </span>";
+                echo "<script type='text/javascript'>document.location.href='./?page=departements'; </script>";
         }
 }
 
@@ -12,7 +13,7 @@ if (isset($_GET['delete'])) {
         $sql = "delete from departement where id=" . $_GET['delete'];
         $requete = mysqli_query($connection, $sql) or die(mysqli_error($connection));
         if ($requete) {
-          echo "<script type='text/javascript'>document.location.href='./?page=departements&message=DeleteOk'; </script>";
+                echo "<span> Suppression effectuée avec succès </span>";
         }
 }
 ?>
@@ -130,7 +131,7 @@ if (isset($_POST['modifier'])) {
               <div class="modal-body" >
                 <form method="post" action="./?page=departements">
                   <div class="form-group">
-                    <label>Libellé de la departement <span class="text-danger">*</span></label>
+                    <label>Libellé du departement <span class="text-danger">*</span></label>
                     <input class="form-control" id="edit_libelle" type="text" name="libelle" value="">
                     <input class="form-control" id="edit_code" type="hidden" name="code_departement" value="">
                   </div>
